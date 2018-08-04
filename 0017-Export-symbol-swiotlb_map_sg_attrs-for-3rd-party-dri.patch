@@ -1,0 +1,25 @@
+From d10793527f53e1b2a5218df5a999880a445c7181 Mon Sep 17 00:00:00 2001
+From: Con Kolivas <kernel@kolivas.org>
+Date: Tue, 1 May 2018 14:58:58 +1000
+Subject: [PATCH 17/18] Export symbol swiotlb_map_sg_attrs for 3rd party driver
+ support.
+
+---
+ lib/swiotlb.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/lib/swiotlb.c b/lib/swiotlb.c
+index cc640588f145..8765ff08bf9d 100644
+--- a/lib/swiotlb.c
++++ b/lib/swiotlb.c
+@@ -973,6 +973,7 @@ swiotlb_map_sg_attrs(struct device *hwdev, struct scatterlist *sgl, int nelems,
+ 	}
+ 	return nelems;
+ }
++EXPORT_SYMBOL(swiotlb_map_sg_attrs);
+ 
+ /*
+  * Unmap a set of streaming mode DMA translations.  Again, cpu read rules
+-- 
+2.17.1
+
